@@ -253,6 +253,11 @@ function changeRow(r) {
 
 }
 
+function ShowAddForm() {
+    document.getElementById("addForm").style.display = 'block';
+    document.getElementById('addBtn').style.display = 'none'
+}
+
 
 
 

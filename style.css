@@ -74,3 +74,11 @@ th {
     position: absolute;
     right: 0;
 }
+
+#addForm {
+    display: none;
+}
+
+#addBtn {
+    margin-left: 20px;
+}
