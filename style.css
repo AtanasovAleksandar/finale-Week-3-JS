@@ -1,6 +1,6 @@
 .new-user-box {
-margin-left: 100px;
-margin-top: 100px
+    margin-left: 100px;
+    margin-top: 100px
 }
 
 #myTable {
@@ -19,12 +19,18 @@ form {
 }
 
 .not-valid {
-    border: 1px solid red;
+    border: 1px solid #ff0000;
+}
+
+.not-valid:focus {
+    box-shadow: 0 0 5px #ff0000;
+    border: 1px solid rgba(81, 203, 238, 1);
 }
 
 .btn-info {
     display: inline-block;
 }
+
 .fas {
     font-weight: 900;
     font-size: 25px;
@@ -37,7 +43,34 @@ form {
     margin-left: 15px;
 }
 
+i {
+    float: left;
+}
 
+td {
+    width: 15%;
+    text-align: center;
+}
 
+th {
+    text-align: center;
+}
 
+.paginat {
+    float: right
+}
 
+#paginat {
+    display: none;
+    position: relative;
+}
+
+#numOfUsers {
+    display: none;
+    font-weight: 700;
+}
+
+.nav-pagination {
+    position: absolute;
+    right: 0;
+}

@@ -7,10 +7,17 @@ var userObj;
 var counter = 0;
 var indexOfTableRow;
 
+var SelectedObject;
+
 var Users = [];
 var user = { id: '', name: '', address: '', city: '', pincod: '', country: '' }
 
 function validationOnInput() {
+    
+    
+
+
+    document.getElementById('paginat').style.display = 'block'
     var getName = document.getElementById('inputName')
     var getAddress = document.getElementById('inputAddress')
     var getCity = document.getElementById('inputCity')
@@ -64,6 +71,8 @@ function validationOnInput() {
 
     if (this.Name != '' && this.Address != '' && this.City != '' && this.PinCode != '' && this.Country != '') {
 
+        document.getElementById('numOfUsers').style.display = 'block';
+        document.getElementById('userNumber').textContent = Users.length + 1;
         Users.push(userObj);
         // Users.push(user)
 
@@ -112,15 +121,21 @@ function addRowInTable() {
     cell4.innerHTML = user.city;
     cell5.innerHTML = user.pincod;
     cell6.innerHTML = user.country
-    cell7.innerHTML = '<i onclick="alertInfo(this)" class="fas fa-eye"></i> <i onclick="ShowRowForEdit(this)" id="editeble' + idOnEle + '" class="fas fa-pen"> </i><i onclick="deletRow(this)" class="far fa-trash-alt"></i>';
+    cell7.innerHTML = '<i onclick="alertInfo(this)" class="fas fa-eye"></i> <i onclick="ShowRowForEdit(this)" id="editeble' + idOnEle + '" class="fas fa-pen"></i> <i onclick="saveNewValues(this)" id="saveData' + idOnEle + '" class="fas fa-save saveBtn" style="display:none"></i><i onclick="deletRow(this)" class="far fa-trash-alt"></i>';
 }
 
 function deletRow(r) {
     indexOfTableRow = r.parentNode.parentNode.rowIndex;
-
+    document.getElementById('userNumber').textContent = Users.length - 1;
+    
     indexOfTableRow
     document.getElementById("myTable").deleteRow(indexOfTableRow);
     counter--
+
+    if (counter < 1) {
+        document.getElementById('paginat').style.display = 'none'
+        document.getElementById('numOfUsers').style.display = 'none'
+    }
 }
 
 function alertInfo(row) {
@@ -174,19 +189,12 @@ function ShowRowForEdit(row) {
         if (Users[i].id == elVal) {
             var UserObject = Users[i];
             console.log(UserObject)
-            // vtoriot pat koga ke sakam da smenam vrednost vo UserObject e undafine a User[i] go ima objektot no
-            // ne go dodeluva na UserObject 
-            var icon = document.getElementById('editeble' + UserObject.id)
-            icon.classList.add('fa-save')
         }
     }
 
-    debugger
-    icon.onclick = function () {
-        if (icon.classList[2] == 'fa-save') {
-            saveNewValues(row.parentNode, icon, elem);
-        }
-    }
+    
+    document.getElementById("editeble" + UserObject.id).style.display = "none";
+    document.getElementById("saveData" + UserObject.id).style.display = "block";
 }
 
 function saveNewValues(table, icon, elem) {
@@ -197,30 +205,31 @@ function saveNewValues(table, icon, elem) {
     var newCountry = document.getElementById('setCount').value
     console.log(newName, newAddress, newCity, newPinCode, newCountry)
 
+    var elem = table.parentNode.parentNode.rowIndex;
+    console.log(elem)
     var el = elem - 1;
     for (var i = 0; i < Users.length; i++) {
         if (Users[i].id == el) {
             var UserObject = Users[i];
-            console.log(UserObject)
-            var icon = document.getElementById('editeble' + UserObject.id)
-            icon.classList.remove('fa-save')
         }
     }
 
-
     console.log(table.parentNode)
 
-    table.parentNode.childNodes[1].innerHTML = newName
-    table.parentNode.childNodes[2].innerHTML = newAddress
-    table.parentNode.childNodes[3].innerHTML = newCity
-    table.parentNode.childNodes[4].innerHTML = newPinCode
-    table.parentNode.childNodes[5].innerHTML = newCountry
+    table.parentNode.parentNode.childNodes[1].innerHTML = newName
+    table.parentNode.parentNode.childNodes[2].innerHTML = newAddress
+    table.parentNode.parentNode.childNodes[3].innerHTML = newCity
+    table.parentNode.parentNode.childNodes[4].innerHTML = newPinCode
+    table.parentNode.parentNode.childNodes[5].innerHTML = newCountry
 
     UserObject.name = newName
     UserObject.address = newAddress
     UserObject.city = newCity
     UserObject.pincod = newPinCode
     UserObject.country = newCountry
+
+    document.getElementById("editeble" + UserObject.id).style.display = "block";
+    document.getElementById("saveData" + UserObject.id).style.display = "none";
 
 }
 
