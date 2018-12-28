@@ -47,6 +47,11 @@ i {
     float: left;
 }
 
+#tableSerchRow {
+    display: none;
+    margin: 0 25px;
+}
+
 td {
     width: 15%;
     text-align: center;
@@ -81,4 +86,5 @@ th {
 
 #addBtn {
     margin-left: 20px;
+    margin-top: 10px;
 }

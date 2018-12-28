@@ -256,6 +256,7 @@ function changeRow(r) {
 function ShowAddForm() {
     document.getElementById("addForm").style.display = 'block';
     document.getElementById('addBtn').style.display = 'none'
+    document.getElementById('tableSerchRow').style.display = 'block';
 }
 
 

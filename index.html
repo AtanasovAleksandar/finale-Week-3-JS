@@ -15,57 +15,60 @@
 </head>
 
 <body>
-    <div class="row ">
-        <nav class="col-md-12 navbar navbar-light bg-light">
-            <a class="navbar-brand float-left">Costumer Detail</a>
-            <form class="form-inline float-right">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </nav>
+    <div class="main" id="tableSerchRow">
+            <div class="row">
+                    <nav class="col-md-12 navbar navbar-light bg-light">
+                        <a class="navbar-brand float-left">Costumer Detail</a>
+                        <form class="form-inline float-right">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </nav>
+                </div>
+                <div class="row">
+                    <table id="myTable" class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">City</th>
+                                <th scope="col">Pin Code</th>
+                                <th scope="col">Country</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                        </tbody>
+                    </table>
+            
+                </div>
+                <div class="container" id="paginat">
+                    <div class="row">
+                        <nav class="nav-pagination" aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <p id="numOfUsers">You have: <span id="userNumber"></span> Customes in the table</p>
+                    </div>
+                </div>
     </div>
-    <div class="row">
-        <table id="myTable" class="table table-dark">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">City</th>
-                    <th scope="col">Pin Code</th>
-                    <th scope="col">Country</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
-
-    </div>
-    <div class="container" id="paginat">
-        <div class="row">
-            <nav class="nav-pagination" aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <p id="numOfUsers">You have: <span id="userNumber"></span> Customes in the table</p>
-        </div>
-    </div>
-    <button id="addBtn" class="btn btn-primary col-md-3" type="button" onclick="ShowAddForm()">Add User</button>
+    
+    <button id="addBtn" class="btn btn-primary col-md-2" type="button" onclick="ShowAddForm()"><i class="fas fa-users"></i>Add Users</button>
     <div class="row">
         <p class="important"></p>
         <div class="container">
